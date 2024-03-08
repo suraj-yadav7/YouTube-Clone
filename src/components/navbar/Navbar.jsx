@@ -6,19 +6,19 @@ import more_icon from "../../assets/more.png";
 import notification_icon from "../../assets/notification.png";
 import profile_icon from "../../assets/suraj.png";
 import logo from "../../assets/logo.png"
-import "./navbar.css"
+import "./navbar.scss"
 
-const Navbar = () => {
+const Navbar = ({setSidebarVal}) => {
   return (
     <nav className='flex-div'>
         <div className='nav-left flex-div'>
-            <img className='menu-icon' src={menu_icon} alt="" />
-            <img className='' src={logo} alt="" />
+            <img className='menu-icon' src={menu_icon}  onClick={()=> setSidebarVal((prev)=> prev==true?false:true)} alt="menu-icon" />
+            <img className='logo' src={logo} alt="" />
         </div>
         <div className='nav-middle'>
           <div className='search-box flex-div'>
             <input type='text' placeholder='search'/>
-            <img className=" " src='#'></img>
+            <img className=" " src={search_icon}></img>
           </div>
             
         </div>
@@ -31,6 +31,6 @@ const Navbar = () => {
         
     </nav>
   )
-}
+};
 
 export default Navbar;
