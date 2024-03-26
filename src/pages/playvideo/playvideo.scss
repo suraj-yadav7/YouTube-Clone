@@ -1,4 +1,135 @@
 .play-video{
-    margin-top: 2rem;
-    margin-left: 2rem;
+    flex-basis: 69%;
+    video{
+        width: 100%;
+    }
+    h4{
+        margin-top:10px ;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+
+    //Current video info 
+    .play-video-info{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top:10px;
+        font-size: 16px;
+        color: #5a5a5a;
+        padding:0 1rem;
+        div{
+            img{
+                width: 20px;
+                margin-right:8px;
+            }
+            span{
+                display: inline-flex;
+                align-items: center;
+                margin-left: 15px;
+            }   
+            
+        }
+        hr{
+            border: 0;
+            height: 1px;
+            background:#ccc;
+            margin: 10px 0;
+            
+        }
+        
+    }
+
+    // Publisher div 
+    .publisher{
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        img{
+            width: 40px;
+            border-radius: 50%;
+            margin-right: 15x;
+        }
+        div{
+            padding-left:12px;
+            flex: 1;
+            line-height: 18px;
+            p{
+                color: #000;
+                font-size: 16px;
+                font-weight: 600px;
+            }
+            span{
+                font-size: 14px;
+                color: #5a5a5a;
+            }
+            
+        }
+        button{
+            color: #fff;
+            background-color: red;
+            padding: 10px 20px;
+            border: 0;
+            outline: 0;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    }
+
+    // video description
+    .vid-description{
+        padding-top:0.5rem ;
+        padding-left: 55px;
+        p{
+            font-size: 14px;
+            margin: 6px 0;
+            color: #5a5a5a;
+        }
+        h4{
+            font-size: 14px;
+            color: #5a5a5a;
+            margin-top: 6px;
+        }
+
+        .comments{
+            display: flex;
+            align-items: flex-start;
+            margin-top: 4px;
+            img{
+                width: 36px;
+                border-radius: 50%;
+                margin-right: 15px;
+            }
+            div h4{
+                font-size: 14px;
+                margin-bottom: 2px;
+                span{
+                    font-size: 12px;
+                    font-weight: 400;
+                    color: #5a5a5a;
+                    margin-left: 8px;
+                }
+            }
+        }
+
+        .comment-action{
+            display: flex;
+            align-items: center;
+            margin-bottom: 18px;
+            font-size: 14px;
+            padding-left: 3.3rem;
+            img{
+                border-radius: 0;
+                width: 20px;
+                margin-right: 6px;
+            }
+            .dislike{
+                margin-left:24px;
+            }
+     
+        }
+    }
+
 }

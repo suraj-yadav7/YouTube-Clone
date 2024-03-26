@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Feed from '../../components/feed/Feed'
 import './home.scss'
 
 const Home = ({sidebarVal}) => {
-  console.log("home ",sidebarVal)
+  const [category, setCategory] = useState(0)
+  console.log("category: ", category)
   return (
     <div>
-      <Sidebar sidebarVal={sidebarVal} />
+      <Sidebar sidebarVal={sidebarVal} category={category} setCategory={setCategory} />
       <div className={`container ${sidebarVal?"":'large-container'}`}>
-        <Feed />
+        <Feed category={category}  />
       </div>
     </div>
   )
