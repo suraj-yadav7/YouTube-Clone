@@ -5,7 +5,6 @@ import './home.scss'
 
 const Home = ({sidebarVal}) => {
   const [category, setCategory] = useState(0)
-  console.log("category: ", category)
   return (
     <div>
       <Sidebar sidebarVal={sidebarVal} category={category} setCategory={setCategory} />

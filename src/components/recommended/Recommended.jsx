@@ -9,10 +9,37 @@ import thumbnail6 from "../../assets/thumbnail6.png"
 import thumbnail7 from "../../assets/thumbnail7.png"
 import thumbnail8 from "../../assets/thumbnail8.png"
 
-const Recommended = () => {
+const Recommended = ({recommVideoList}) => {
+
+    function kToMillion(val){
+        if(val>1000000){
+          return (Math.floor(val)/1000000).toFixed(1)+"M"
+        }
+        if(val>1000){
+          return (Math.floor(val)/1000).toFixed(1)+"k"
+        }
+        else{
+          return val+"views";
+        }
+    };
   return (
     <>
-        <div className='recommended'>
+      <div className='recommended'>
+    {
+        // when object props "recommVideoList" don't have error load below div
+        recommVideoList?
+        recommVideoList.items.map((item)=> (
+            <div key={item.id}>
+            <img src={item.snippet.thumbnails.medium.url} alt=""/>
+                <div className='video-info'>
+                    <h4>{item.snippet.localized.title} Learn mern stack with 2 projects and with free notes of important concepts</h4>
+                    <p>{item.snippet.channelTitle}</p>
+                    <p>{kToMillion(item.statistics.viewCount)}</p>
+                </div>
+            </div>
+        ))
+        :
+            <div >
             <div className='side-video-list'>
                 <img src={thumbnail1} alt=""/>
                 <div className='video-info'>
@@ -45,7 +72,9 @@ const Recommended = () => {
                     <p>152k Views</p>
                 </div>
             </div>
+            </div>
 
+        }
         </div>
     </>
   )

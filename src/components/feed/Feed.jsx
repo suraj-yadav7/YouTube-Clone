@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import thumbnail1 from "../../assets/thumbnail1.png"
 import thumbnail2 from "../../assets/thumbnail2.png"
 import thumbnail3 from "../../assets/thumbnail3.png"
@@ -13,27 +13,26 @@ import FeedContainer from './FeedContainer'
 
 const Feed = ({category}) => {
 const [popularVideo, setPopularVideo]=useState(0);
+
     // API key 
     const API_KEY =process.env.REACT_APP_API_KEY;
-    console.log("API KEY: ", API_KEY);
     
     const getPopularVideos = async()=>{
         let response = await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&regionCode=IN&videoCategoryId=${category}&key=${API_KEY}`)
         
         let data = await response.json()
-        console.log("reponse: ", data);
         if(data){
             setPopularVideo(data.items)
         }
         else{
             console.log("data is empty")
-            console.log("Need to resolve issues")
-            console.log("once check th API key")
-            console.log("remove '' api key")
-            console.log("Problem resolved")
         }
     };
-    console.log("initial set state data: ", popularVideo)
+
+    // fetch feed data as per category selected by user
+    useEffect(()=>{
+        // getPopularVideos(category)
+    },[]);
 
   return (
     <>

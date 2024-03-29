@@ -16,7 +16,6 @@ import "./sidebar.scss"
 
 
 const Sidebar = ({sidebarVal, category, setCategory}) => {
-  console.log("sidebar ",category)
 
   return (
     <div className={`sidebar ${sidebarVal?"":"small-sidebar"}`} >

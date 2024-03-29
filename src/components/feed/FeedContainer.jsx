@@ -4,6 +4,8 @@ import "./feedContainer.scss"
 import { Link } from 'react-router-dom';
 
 const FeedContainer = ({item, key}) => {
+
+  // converting views-count into thousands "k" and Millions "M"
   function kToMillion(val){
     if(val>1000000){
       return (Math.floor(val)/1000000).toFixed(1)+"M"
@@ -14,7 +16,8 @@ const FeedContainer = ({item, key}) => {
     else{
       return val+"views"
     }
-  }
+  };
+
   return (
     <>
     <div className='feed'>
