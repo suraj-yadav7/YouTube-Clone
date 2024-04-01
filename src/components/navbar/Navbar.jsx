@@ -21,7 +21,7 @@ const Navbar = ({setSidebarVal}) => {
         <div className='nav-middle'>
           <div className='search-box flex-div'>
             <input type='text' placeholder='search'/>
-            <img className=" " src={search_icon}></img>
+            <img className=" search-icon" src={search_icon}></img>
           </div>
             
         </div>

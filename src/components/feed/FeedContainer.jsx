@@ -2,6 +2,7 @@ import React from 'react'
 import "./feed.scss"
 import "./feedContainer.scss"
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 const FeedContainer = ({item, key}) => {
 
@@ -26,7 +27,7 @@ const FeedContainer = ({item, key}) => {
             <img src={item.snippet.thumbnails.default.url} alt="#" />
             <h4>{item.snippet.localized.title.substring(0,50)}</h4>
             <p className='channelTitle'>{item.snippet.channelTitle}</p>
-            <p>{kToMillion(item.statistics.viewCount)} &bull; 2 days ago video uploaded</p>
+            <p>{kToMillion(item.statistics.viewCount)} &bull; {moment(item.snippet.publishedAt).fromNow()}</p>
         </div>
       </Link>
     </div>

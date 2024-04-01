@@ -60,3 +60,14 @@
         border-bottom: 3px solid red;
     }
 }
+
+@media (max-width:800px){
+    .sidebar{
+        width: 5%;
+    }
+    .side-link{
+        p{
+            display: none;
+        }
+    }
+}

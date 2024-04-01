@@ -9,3 +9,9 @@
 .large-container{
     padding-left: 5%;
 }
+
+@media(max-width:800px){
+    .container, .large-container{
+        padding:0 5%;
+    }
+}

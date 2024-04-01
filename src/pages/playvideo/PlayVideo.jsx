@@ -10,6 +10,7 @@ import "./playvideo.scss";
 import moment from "moment";
 const PlayVideo = ({videoData}) => {
   const [channelData, setChannelData] = useState('')
+  const [commentData, setCommentData] = useState('')
 
   const API_KEY =process.env.REACT_APP_API_KEY;
 
@@ -19,6 +20,13 @@ const PlayVideo = ({videoData}) => {
     const data = await response.json()
     setChannelData(data.items[0])
   };
+
+  const fetchComment=async(videoId)=>{
+    let response = await fetch(`https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&maxResults=10&videoId=${videoId}&key=${API_KEY}`)
+    let data = await response.json()
+    setCommentData(data.items)
+  };
+console.log("setComment: ", commentData);
 
   // function which count likes and views
   const viewsLikeCount =(val)=>{
@@ -32,10 +40,12 @@ const PlayVideo = ({videoData}) => {
       return val;
     }
   };
+
   
   useEffect(()=>{
     if(videoData){
       fetchChannelInfo(videoData.snippet.channelId)
+      fetchComment(videoData.id)
     }
   },[videoData]);
 
@@ -86,81 +96,33 @@ const PlayVideo = ({videoData}) => {
           </p>
           <hr />
           <h4>{videoData.statistics.commentCount} Comments</h4>
-          <div className="comments">
-            <img src={tom} />
-            <div>
-              <h4>
-                Tom cruise <span>2 days ago</span>
-              </h4>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse,
-                provident.
-              </p>
-            </div>
-          </div>
-          <div className="comment-action">
-            <img src={like} alt="" />
-            <spna>250</spna>
-            <img className="dislike" src={dislike} alit=""/> 
-            <span>12</span>
-          </div>
-          <div className="comments">
-            <img src={tom} />
-            <div>
-              <h4>
-                Tom cruise <span>2 days ago</span>
-              </h4>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse,
-                provident.
-              </p>
-            </div>
-          </div>
-          <div className="comment-action">
-            <img src={like} alt="" />
-            <spna>250</spna>
-            <img className="dislike" src={dislike} alit=""/> 
-            <span>12</span>
-          </div>
-          <div className="comments">
-            <img src={tom} />
-            <div>
-              <h4>
-                Tom cruise <span>2 days ago</span>
-              </h4>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse,
-                provident.
-              </p>
-            </div>
-          </div>
-          <div className="comment-action">
-            <img src={like} alt="" />
-            <spna>250</spna>
-            <img className="dislike" src={dislike} alit=""/> 
-            <span>12</span>
-          </div>
-          <div className="comments">
-            <img src={tom} />
-            <div>
-              <h4>
-                Tom cruise <span>2 days ago</span>
-              </h4>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse,
-                provident.
-              </p>
-            </div>
-          </div>
-          <div className="comment-action">
-            <img src={like} alt="" />
-            <spna>250</spna>
-            <img className="dislike" src={dislike} alit=""/> 
-            <span>12</span>
+          <div id="commentSection">
+            {
+              commentData? commentData.map((item)=>(
+                <div>
+                    <div key={item.id} className="comments">
+                      <img src={item.snippet.topLevelComment.snippet.authorProfileImageUrl} />
+                      <div>
+                        <h4>
+                          {item.snippet.topLevelComment.snippet.authorDisplayName} <span>{moment(item.snippet.topLevelComment.snippet.publishedAt).fromNow()}</span>
+                        </h4>
+                        <p>
+                          {item.snippet.topLevelComment.snippet.textOriginal}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="comment-action">
+                      <img src={like} alt="likesCount" />
+                      <span>{item.snippet.topLevelComment.snippet.likeCount}</span>
+                      <img className="dislike" src={dislike} alit="dislikeCount"/> 
+                    </div>
+                  </div>
+                    )): <div> No comment</div>
+            };
           </div>
         </div>
       </div>
-  }
+    }
     </>
   );
 };

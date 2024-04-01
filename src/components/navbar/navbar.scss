@@ -49,4 +49,30 @@ nav{
     }
 }
 
+@media (max-width:800px){
+    .menu-icon{
+        display: none;
+    }
+    .nav-right img{
+        display: none;
+    }
+    .nav-right .user-icon{
+        display: block;
+        width: 28px;
+    }
+
+    .nav-middle{
+        width: 90px;
+        .search-icon{
+            display: none;
+        }
+        
+    }
+    .flex-div{
+        .logo{
+            width: 100px;
+        }
+    }
+}
+
 

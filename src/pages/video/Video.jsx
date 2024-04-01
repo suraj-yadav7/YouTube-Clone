@@ -7,9 +7,9 @@ import { useParams } from 'react-router-dom'
 const Video = () => {
   const [singleVideoData, setSingleVideoData] = useState('')
   const [recommData, setRecommData] =  useState('');
+  const API_KEY =process.env.REACT_APP_API_KEY;
 
   const params  = useParams()
-  const API_KEY =process.env.REACT_APP_API_KEY;
 
   // fetching single video details
   const videoFetch=async(categoryId, videoId)=>{
@@ -32,7 +32,7 @@ const Video = () => {
 
   useEffect(()=>{
       videoFetch(params.categoryId, params.videoId);
-  },[])
+  },[params])
   return (
     <div className='play-container'>
         <PlayVideo videoData={singleVideoData} />
