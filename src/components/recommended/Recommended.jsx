@@ -6,8 +6,6 @@ import thumbnail3 from "../../assets/thumbnail3.png"
 import thumbnail4 from "../../assets/thumbnail4.png"
 import thumbnail5 from "../../assets/thumbnail5.png"
 import thumbnail6 from "../../assets/thumbnail6.png"
-import thumbnail7 from "../../assets/thumbnail7.png"
-import thumbnail8 from "../../assets/thumbnail8.png"
 import { Link } from 'react-router-dom'
 
 const Recommended = ({recommVideoList}) => {
@@ -23,6 +21,15 @@ const Recommended = ({recommVideoList}) => {
           return val+"views";
         }
     };
+
+    // when user click on below card recommend  it will scroll to top
+    const gotoTop=()=>{
+        window.scrollTo({
+            top:0,
+            behavior:'smooth'
+        })
+    }
+
   return (
     <>
       <div className='recommended'>
@@ -30,13 +37,13 @@ const Recommended = ({recommVideoList}) => {
         // when object props "recommVideoList" don't have error load below div
         recommVideoList?
         recommVideoList.items.map((item)=> (
-            <Link to={`/video/${item.snippet.categoryId}/${item.id}`} >
-            <div key={item.id}>
+            <Link to={`/video/${item.snippet.categoryId}/${item.id}`} key={item.id} >
+            <div className="recomVideo" onClick={gotoTop}>
                 <img src={item.snippet.thumbnails.medium.url} alt=""/>
                 <div className='video-info'>
-                    <h4>{item.snippet.localized.title}</h4>
+                    <h4 className='headingRecomm'>{item.snippet.localized.title}</h4>
                     <p>{item.snippet.channelTitle}</p>
-                    <p>{kToMillion(item.statistics.viewCount)}</p>
+                    <p>{kToMillion(item.statistics.viewCount)} views</p>
                 </div>
             </div>
             </Link>
@@ -75,7 +82,23 @@ const Recommended = ({recommVideoList}) => {
                     <p>152k Views</p>
                 </div>
             </div>
+            <div className='side-video-list'>
+                <img src={thumbnail5} alt=""/>
+                <div className='video-info'>
+                    <h4>Learn mern stack with 2 projects</h4>
+                    <p>Great Learning</p>
+                    <p>152k Views</p>
+                </div>
             </div>
+            <div className='side-video-list'>
+                <img src={thumbnail6} alt=""/>
+                <div className='video-info'>
+                    <h4>Learn mern stack with 2 projects</h4>
+                    <p>Great Learning</p>
+                    <p>152k Views</p>
+                </div>
+            </div>
+        </div>
 
         }
         </div>

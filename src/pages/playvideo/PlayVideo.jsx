@@ -26,7 +26,6 @@ const PlayVideo = ({videoData}) => {
     let data = await response.json()
     setCommentData(data.items)
   };
-console.log("setComment: ", commentData);
 
   // function which count likes and views
   const viewsLikeCount =(val)=>{
@@ -54,7 +53,7 @@ console.log("setComment: ", commentData);
     {videoData &&
       <div className="play-video">
         {/* <video src={video1} controls autoPlay muted></video> */}
-        <iframe width="1200" height="640" src={`https://www.youtube.com/embed/${videoData.id}`} title={videoData.snippet.localized.title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="1000" height="600" src={`https://www.youtube.com/embed/${videoData.id}`} title={videoData.snippet.localized.title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
         <h4>{videoData.snippet.localized.title}</h4>
         <div className="play-video-info">
@@ -62,7 +61,7 @@ console.log("setComment: ", commentData);
           <p>{(videoData.statistics.viewCount)>1000?viewsLikeCount(videoData.statistics.viewCount):(videoData.statistics.viewCount)+"views" } &bull; {moment(videoData.snippet.publishedAt).fromNow()} </p>
           <div>
             <span>
-            {viewsLikeCount(videoData.statistics.likeCount) } <img src={like} alt=""></img>100
+             <img src={like} alt=""></img>{viewsLikeCount(videoData.statistics.likeCount)}
             </span>
             <span>
               <img src={dislike} alt=""></img>10
@@ -89,18 +88,18 @@ console.log("setComment: ", commentData);
           <button>Subscriber</button>
         </div>
           }
+        <hr />
         <div className="vid-description">
-          <p>Video Description</p>
+          <h5>Video Description</h5>
           <p>
             {videoData.snippet.localized.description}
           </p>
-          <hr />
-          <h4>{videoData.statistics.commentCount} Comments</h4>
+          <h5>{videoData.statistics.commentCount} Comments</h5>
           <div id="commentSection">
             {
               commentData? commentData.map((item)=>(
-                <div>
-                    <div key={item.id} className="comments">
+                <div key={item.id}>
+                    <div  className="comments">
                       <img src={item.snippet.topLevelComment.snippet.authorProfileImageUrl} />
                       <div>
                         <h4>

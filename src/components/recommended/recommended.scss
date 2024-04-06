@@ -1,6 +1,23 @@
 .recommended{
+
     flex-basis: 30%;
+    padding: 0 2%;
 }
+
+.recomVideo{
+    margin: 1rem 0;
+    img{
+        border-radius: 8px;
+    }
+    .video-info{
+        h4{
+            padding: 0;
+        }
+    }
+}
+
+
+
 
 .side-video-list{
     display: flex;
@@ -24,5 +41,12 @@
         p{
             padding: 2px 0;
         }
+    }
+}
+
+
+@media(max-width:800px){
+    .recommended{
+        flex-basis: 100%;
     }
 }

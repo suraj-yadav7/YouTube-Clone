@@ -9,16 +9,18 @@ import music from "../../assets/music.png"
 import blog from "../../assets/blogs.png"
 import news from "../../assets/news.png"
 import suraj from "../../assets/suraj.png"
-import simon from "../../assets/simon.png"
-import tom from "../../assets/tom.png"
-import megan from "../../assets/megan.png"
+import chaiaurcode from "../../assets/chaiaurcode.jpg"
+import codeharry from "../../assets/codeharry.jpg"
+import technical from "../../assets/technical.jpg"
+import apnaclg from "../../assets/apnaclg.jpg"
+import lovebabbar from "../../assets/lovebabbar.jpg"
 import "./sidebar.scss"
 
 
 const Sidebar = ({sidebarVal, category, setCategory}) => {
 
   return (
-    <div className={`sidebar ${sidebarVal?"":"small-sidebar"}`} >
+    <div className={`sidebar ${sidebarVal==true?"":"small-sidebar"}`} >
         <div className='shortcut-links'>
             <div className={`side-link ${category ===0? 'active':''}`}  onClick={()=>setCategory(0)}>
                 <img src={home} alt="#" /><p>Home</p>
@@ -50,21 +52,20 @@ const Sidebar = ({sidebarVal, category, setCategory}) => {
         </div>
             <hr/>
         <div className='subscribed-list'>
-            <h3>Subscribed List</h3>
             <div className='side-link'>
-                <img src={suraj} /><p>Hindi News</p>
+                <img src={codeharry} /><p>Code with harry</p>
             </div>
             <div className='side-link'>
-                <img src={simon} /><p>Code with harry</p>
+                <img src={technical} /><p>Technical</p>
             </div>
             <div className='side-link'>
-                <img src={tom} /><p>Thappa Technical</p>
+                <img src={chaiaurcode} /><p>Chai Aur Code</p>
             </div>
             <div className='side-link'>
-                <img src={megan} /><p>Chai Aur Code</p>
+                <img src={lovebabbar} /><p>Code Help</p>
             </div>
             <div className='side-link'>
-                <img src={suraj} /><p>Apna College</p>
+                <img src={apnaclg} /><p>Apna College</p>
             </div>
         </div>
     </div>

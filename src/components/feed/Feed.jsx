@@ -31,8 +31,8 @@ const [popularVideo, setPopularVideo]=useState(0);
 
     // fetch feed data as per category selected by user
     useEffect(()=>{
-        // getPopularVideos(category)
-    },[]);
+        getPopularVideos(category)
+    },[category]);
 
   return (
     <>
@@ -52,90 +52,75 @@ const [popularVideo, setPopularVideo]=useState(0);
         </Link>
         <div className='card'>
             <img src={thumbnail2} alt="#" />
-            <h3>This is best channel to learn about fitness</h3>
-            <h4>Guru Mann</h4>
+            <h3>This is best channel to learn web development, android development, devops</h3>
             <p>100k views &bull; 2 days ago</p>
         </div>
         <div className='card'>
             <img src={thumbnail3} alt="#" />
-            <h3>This is best channel to learn about fitness</h3>
-            <h4>Guru Mann</h4>
+            <h3>This is best channel to learn web development, android development, devops</h3>
             <p>100k views &bull; 2 days ago</p>
         </div>
         <div className='card'>
             <img src={thumbnail4} alt="#" />
-            <h3>This is best channel to learn about fitness</h3>
-            <h4>Guru Mann</h4>
+            <h3>This is best channel to learn web development, android development, devops</h3>
             <p>100k views &bull; 2 days ago</p>
         </div>
         <div className='card'>
             <img src={thumbnail5} alt="#" />
-            <h3>This is best channel to learn about fitness</h3>
-            <h4>Guru Mann</h4>
+            <h3>This is best channel to learn web development, android development, devops</h3>
             <p>100k views &bull; 2 days ago</p>
         </div>
         <div className='card'>
             <img src={thumbnail6} alt="#" />
-            <h3>This is best channel to learn about fitness</h3>
-            <h4>Guru Mann</h4>
+            <h3>This is best channel to learn web development, android development, devops</h3>
             <p>100k views &bull; 2 days ago</p>
         </div>
         <div className='card'>
             <img src={thumbnail7} alt="#" />
-            <h3>This is best channel to learn about fitness</h3>
-            <h4>Guru Mann</h4>
+            <h3>This is best channel to learn web development, android development, devops</h3>
             <p>100k views &bull; 2 days ago</p>
         </div>        <div className='card'>
             <img src={thumbnail8} alt="#" />
-            <h3>This is best channel to learn about fitness</h3>
-            <h4>Guru Mann</h4>
+            <h3>This is best channel to learn web development, android development, devops</h3>
             <p>100k views &bull; 2 days ago</p>
         </div>
         <div className='card'>
             <img src={thumbnail1} alt="#" />
-            <h3> This is best channel to learn about fitness</h3>
-            <h4>Guru Mann</h4>
+            <h3> This is best channel to learn web development, android development, devops</h3>
             <p>100k views &bull; 2 days ago</p>
         </div>
         <div className='card'>
             <img src={thumbnail2} alt="#" />
-            <h3>This is best channel to learn about fitness</h3>
-            <h4>Guru Mann</h4>
+            <h3>This is best channel to learn web development, android development, devops</h3>
             <p>100k views &bull; 2 days ago</p>
         </div>
         <div className='card'>
             <img src={thumbnail3} alt="#" />
-            <h3>This is best channel to learn about fitness</h3>
-            <h4>Guru Mann</h4>
+            <h3>This is best channel to learn web development, android development, devops</h3>
             <p>100k views &bull; 2 days ago</p>
         </div>
         <div className='card'>
             <img src={thumbnail4} alt="#" />
-            <h3>This is best channel to learn about fitness</h3>
-            <h4>Guru Mann</h4>
+            <h3>This is best channel to learn web development, android development, devops</h3>
             <p>100k views &bull; 2 days ago</p>
         </div>
         <div className='card'>
             <img src={thumbnail5} alt="#" />
             <h3>This is best channel to learn about fitness</h3>
-            <h4>Guru Mann</h4>
             <p>100k views &bull; 2 days ago</p>
         </div>
         <div className='card'>
             <img src={thumbnail6} alt="#" />
             <h3>This is best channel to learn about fitness</h3>
-            <h4>Guru Mann</h4>
             <p>100k views &bull; 2 days ago</p>
         </div>
         <div className='card'>
             <img src={thumbnail7} alt="#" />
             <h3>This is best channel to learn about fitness</h3>
-            <h4>Guru Mann</h4>
             <p>100k views &bull; 2 days ago</p>
         </div>        <div className='card'>
             <img src={thumbnail8} alt="#" />
             <h3>This is best channel to learn about fitness</h3>
-            <h4>Guru Mann</h4>
             <p>100k views &bull; 2 days ago</p>
         </div>
         </div>

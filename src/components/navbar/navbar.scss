@@ -7,6 +7,7 @@ nav{
     top:0px;
     z-index:10;
     height: 6vh;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 
 .nav-left .menu-icon{
@@ -15,7 +16,7 @@ nav{
 }
 
 .nav-left .logo{
-    width: 130px;
+    width: 100px;
 }
 
 .nav-middle 
@@ -44,12 +45,20 @@ nav{
         margin-right: 25px;
     }
     .user-icon{
-        width: 35px;
-        border-radius: 48%;
+        width: 30px;
+        border-radius: 50%;
     }
 }
 
 @media (max-width:800px){
+.flex-div{
+    .nav-left{
+        .logo{
+            width: 80px;
+        }
+    }
+}
+
     .menu-icon{
         display: none;
     }
@@ -62,7 +71,7 @@ nav{
     }
 
     .nav-middle{
-        width: 90px;
+        width: 160px;
         .search-icon{
             display: none;
         }

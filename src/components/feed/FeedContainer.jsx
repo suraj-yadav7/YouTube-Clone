@@ -24,7 +24,7 @@ const FeedContainer = ({item, key}) => {
     <div className='feed'>
       <Link to={`/video/${item.snippet.categoryId}/${item.id}`} >
         <div className='card' id={key}>
-            <img src={item.snippet.thumbnails.default.url} alt="#" />
+            <img src={item.snippet.thumbnails.high.url} alt="#" />
             <h4>{item.snippet.localized.title.substring(0,50)}</h4>
             <p className='channelTitle'>{item.snippet.channelTitle}</p>
             <p>{kToMillion(item.statistics.viewCount)} &bull; {moment(item.snippet.publishedAt).fromNow()}</p>
